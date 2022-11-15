@@ -6,7 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.4/css/bulma.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.4/css/bulma.min.css"/>
+    <style>
+        @keyframes blinker {
+            50% { opacity: 0; }
+        }
+    </style>
 </head>
     
 <body>
@@ -17,7 +22,16 @@
                 <a class="navbar-item is-size-3" href="#" style="font-weight:bold;">
                   &lt;nav class="navbar is-primany is-flex-touch"&gt;
                 </a>
-                <span class="navbar-burger burger" data-target="navMenu">
+                <script>
+                    function toggleBurger() {
+                        let burgerIcon = document.getElementById('burger');
+                        let dropMenu = document.getElementById('navMenu');
+                        burgerIcon.classList.toggle('is-active');
+                        dropMenu.classList.toggle('is-active');
+                    }
+                </script>
+                <span class="navbar-burger burger" data-target="navMenu" id="burger" 
+                      onclick="toggleBurger()">
                   <span></span>
                   <span></span>
                   <span></span>
@@ -57,13 +71,13 @@
         <div class="block">
             <h1 class="title is-1">Headings</h1>
             <h1 class="title">&lt;h1 class="title"&gt;Title&lt;/h1&gt;</h1>
-            <h2 class="subtitle">&lt;h2 class="subtitle"&gt; Subtitle&lt;/h2&gt;</h2>
-            <h1 class="title is-1">class="title is-1"</h1>
-            <h2 class="title is-2">class="title is-2"</h2>
-            <h3 class="title is-3">class="title is-3"</h3>
-            <h4 class="title is-4">class="title is-4"</h4>
-            <h5 class="title is-5">class="title is-5"</h5>
-            <h6 class="title is-6">class="title is-6"</h6>
+            <h1 class="subtitle">&lt;h1 class="subtitle"&gt; Subtitle&lt;/h1&gt;</h1>
+            <h1 class="title is-1">h1 class="title is-1"</h1>
+            <h1 class="title is-2">h1 class="title is-2"</h1>
+            <h1 class="title is-3">h1 class="title is-3"</h1>
+            <h1 class="title is-4">h1 class="title is-4"</h1>
+            <h1 class="title is-5">h1 class="title is-5"</h1>
+            <h1 class="title is-6">h1 class="title is-6"</h1>
         </div>
 
         <!-- content -->
@@ -75,6 +89,15 @@
             <p class="content is-large">class="content is-large"</p>
         </div>
 
+        <p class="content">
+            &lt;p class="content" style="animation: blinker 1s linear infinite;"&gt;
+                <span class="content" style="animation: blinker 1s linear infinite;">BLINK ME</span>
+            &lt;/p&gt;
+        </p>
+        <marquee behavior="scroll" direction="left">
+            &lt;marquee behavior="scroll" direction="left"&gt;Message&lt;/marquee&gt;
+        </marquee>
+        
         <!-- buttons -->
 
         <div class="block">
@@ -273,50 +296,58 @@
         <!-- menu -->
         <div class="block">
             <h1 class="title is-1">Side Menu</h1>
-                <pre name="not-html-pre">
-                <aside class="menu">
-                    <p class="menu-label">Label 1</p>
-                    <ul class="menu-list">
-                        <li><a href="/link1">Link1</a>
-                            <a href="/link2">Link2</a></li>
-                    </ul>
-                    <p class="menu-label">Label 2</p>
-                    <ul class="menu-list">
-                        <li><a href="/link3" class="is-active">Link3</a><ul>
-                            <li>
-                                <a href="/link4">Link 4</a>
-                                <a href="/link5">Link 5</a>
-                                <a href="/link6">Link 6</a>
-                            </li></ul>
-                        </li>
-                    </ul>
-                </aside>
-                </pre>
-            <aside class="menu">
-                <p class="menu-label">
-                    Label 1
-                </p>
-                <ul class="menu-list">
-                    <li><a href="#">Link1</a>
-                        <a href="#">Link2</a>
-                    </li>
-                </ul>
-                <p class="menu-label">
-                    Label 2
-                </p>
-                <ul class="menu-list">
+            <table>
+                <tr>
+                    <td>
+                        <aside class="menu">
+                            <p class="menu-label">
+                                Label 1
+                            </p>
+                            <ul class="menu-list">
+                                <li><a href="#">Link1</a>
+                                    <a href="#">Link2</a>
+                                </li>
+                            </ul>
+                            <p class="menu-label">
+                                Label 2
+                            </p>
+                            <ul class="menu-list">
+                                <li>
+                                    <a href="#" class="is-active">Link3</a>
+                                    <ul>
+                                        <li>
+                                            <a href="#">Link 4</a>
+                                            <a href="#">Link 5</a>
+                                            <a href="#">Link 6</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </aside>
+                    </td>
+                    <td>
+    <pre name="not-html-pre">
+        <aside class="menu">
+            <p class="menu-label">Label 1</p>
+            <ul class="menu-list">
+                <li><a href="/link1">Link1</a>
+                    <a href="/link2">Link2</a></li>
+            </ul>
+            <p class="menu-label">Label 2</p>
+            <ul class="menu-list">
+                <li><a href="/link3" class="is-active">Link3</a><ul>
                     <li>
-                        <a href="#" class="is-active">Link3</a>
-                        <ul>
-                            <li>
-                                <a href="#">Link 4</a>
-                                <a href="#">Link 5</a>
-                                <a href="#">Link 6</a>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-            </aside>
+                        <a href="/link4">Link 4</a>
+                        <a href="/link5">Link 5</a>
+                        <a href="/link6">Link 6</a>
+                    </li></ul>
+                </li>
+            </ul>
+        </aside>
+    </pre>
+                    </td>
+                </tr>
+            </table>
         </div>
 
         <!-- hero -->
